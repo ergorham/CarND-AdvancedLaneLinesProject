@@ -112,8 +112,8 @@ Here's a [link to my video result](./output_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-In order gain better intuition on the limitations of my implementation, I ran my algorithm against the challenge video and obtained less than stellar results. Where the model fails is on heavily repaired roads with crack repairs that are in the direction of travel (vertical as viewed by the camera). The algorithm mistakes these repairs as lane lines and therefore incorrectly interprets the lane lines.
+In order gain better intuition on the limitations of my implementation, I ran my algorithm against the challenge video and obtained less than stellar results. Where the model fails is on heavily repaired roads with crack repairs that are in the direction of travel (vertical as viewed by the camera). The algorithm mistakes these repairs as lane lines and therefore incorrectly interprets the lane lines. These could produce disastrous results in real driving scenarios. A better approach would be accurate data from GPS map data and fusion that with what the camera sees.
 
-Where I could improve the pipeline is to  calculate secondary and tertiary potential lane lines, take into account details about the features I calculate, like distance between detected lines, and reject ill-fitted primary lines and opt for secondary detected lines if these are a better fit.
+Although I had implemented rudimentary smoothing, using line data from previous frames, the algorithm will fail if the "wrong" lines are persistent over several frames, as in the case of repaired roads.
 
 A [link to my challenge video output](./challenge_output_video.mp4) is included with this submission. This output includes intermediate binary output images for debugging what the pipeline detected through image processing.
